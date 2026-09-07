@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>chrchie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Radio+Canada:ital,wght@0,400..700;1,400..700&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --chr-dark: #261A3C;
+        --chr-text: var(--chr-dark);
+      }
+
+      body {
+        background-color: #ffffff;
+        margin: 0;
+        font-family: 'Radio Canada', sans-serif;
+        color: var(--chr-text);
+        font-size: 20px;
+      }
+
+      #hero-bg {
+        background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1280 658.84' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><linearGradient id='grad' gradientUnits='userSpaceOnUse' x1='-10' x2='10' y1='0' y2='0' gradientTransform='matrix(3.9189e-15 32.942 -64 2.0171e-15 640 329.42)'><stop stop-color='rgba(235,220,255,1)' offset='0'/><stop stop-color='rgba(255,244,223,1)' offset='1'/></linearGradient></defs></svg>");
+        height: 100vh;
+        margin: 0 0 -100vh;
+      }
+
+      h1 {
+        font-size: 80px;
+        font-weight: 600;
+        margin: 0;
+        font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
+      }
+
+      a {
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--chr-text);
+      }
+
+      p {
+        margin: 0;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0 20px;
+        font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
+      }
+
+      header > #logo {
+        margin-right: auto;
+      }
+
+      #logo > img {
+        height: 40px;
+      }
+
+      main {
+        padding: 140px 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+      }
+
+      #hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 500px));
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+      }
+
+      #hero #hero-img {
+        aspect-ratio: 508 / 326;
+        display: block;
+        width: 500px;
+        border-radius: 4px;
+      }
+
+      #hero #hero-img > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      #about {
+        letter-spacing: -0.8px;
+      }
+
+      #about > #title {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      #about > #title img {
+        width: 81px;
+        height: 81px;
+        border-radius: 100%;
+      }
+
+      #about > #title h1 {
+        letter-spacing: -2px;
+      }
+
+      #links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 500px));
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+      }
+
+      #links > a {
+        font-family: "Geist Mono", monospace;
+        font-size: 19px;
+        font-weight: 300;
+        color: white;
+        background: var(--chr-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 22px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="hero-bg">
+    </div>
+    <header>
+      <a id="logo" href="#">
+        <img src="logo.png" alt="chrchie logo"/>
+      </a>
+      <a href="#links">
+        Links
+      </a>
+      <a href="#shop">
+        Shop Recommendations
+      </a>
+      <a href="#critters">
+        Critters
+      </a>
+      <a href="#design">
+        Design Work
+      </a>
+      <a>
+        Let’s chat →
+      </a>
+    </header>
+    <main>
+      <div id="hero">
+        <div id="about">
+          <div id="title">
+            <img src="icon.png" alt="chrchie icon"/>
+            <h1>chrchie</h1>
+          </div>
+          <p>💜 exotic pet creator &amp; critter keeper</p>
+          <p>🦎 lizard girl vtuber + livestreamer</p>
+          <p>🎸 musician &amp; singer-songwriter</p>
+          <p>💼 product designer · 5+ years in tech</p>
+        </div>
+        <div id="hero-img">
+          <img src="hero.png" alt="hero image"/>
+        </div>
+      </div>
+      <div id="links">
+        <a>
+          Email hi@chrchie.com
+        </a>
+        <a>
+          Media Kit
+        </a>
+        <a>
+          Twitch
+        </a>
+        <a>
+          YouTube
+        </a>
+        <a>
+          Instagram
+        </a>
+        <a>
+          X
+        </a>
+        <a>
+          YouTube Music
+        </a>
+        <a>
+          Spotify
+        </a>
+        <a>
+          Merch
+        </a>
+        <a>
+          Lab Brats Streamer Group
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
