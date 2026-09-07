@@ -261,6 +261,37 @@
         height: 80px;
         object-fit: contain;
       }
+
+      #critters {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px 48px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      #critters .critter {
+        text-wrap: wrap;
+        max-width: 200px;
+      }
+
+      #critters .critter img {
+        object-fit: contain;
+      }
+
+      #critters .critter span {
+        display: block;
+        color: rgb(108, 108, 108);
+        font-family: 'Source Serif 4', serif;
+        font-size: 13px;
+      }
+
+      #critters .critter div {
+        font-size: 36px;
+        font-family: "Radio Canada Big", sans-serif;
+      }
     </style>
   </head>
 
@@ -333,7 +364,8 @@
             hi@chrchie.com
           </a>
           <a href="https://beacons.ai/chrchie/mediakit" target="mediakit">
-            <img src="img/graph.png" style="filter: invert(1);border-radius: 0" width="20" height="20" alt="Media kit" draggable="false">
+            <img src="img/graph.png" style="filter: invert(1);border-radius: 0" width="20" height="20" alt="Media kit"
+                 draggable="false">
             Media Kit
           </a>
           <a href="https://www.twitch.tv/chrchie" target="twitch">
@@ -361,7 +393,8 @@
             Spotify
           </a>
           <a href="https://www.orchideight.com/collections/chrchie" target="orchid8">
-            <img src="img/social/orchideight.png" style="border-radius: 0" width="20" height="20" alt="Twitch" draggable="false">
+            <img src="img/social/orchideight.png" style="border-radius: 0" width="20" height="20" alt="Twitch"
+                 draggable="false">
             Merch
           </a>
           <a href="https://labbrats.tv" target="labbrats">
@@ -379,7 +412,8 @@
           </div>
           <div id="recommendations">
             <hr>
-            <a class="recommendation" href="https://partners.zenpropets.com/go/chrchieg6tr/zen-habitats" target="zenhabitats">
+            <a class="recommendation" href="https://partners.zenpropets.com/go/chrchieg6tr/zen-habitats"
+               target="zenhabitats">
               <img src="img/zen-habitats.png" alt="Zen Habitats"/>
               <div>
                 <h3>Zen Habitats</h3>
@@ -395,7 +429,8 @@
               </div>
             </a>
             <hr>
-            <a class="recommendation" href="https://www.amazon.com/shop/chrchie?ccs_id=2afe55c6-d70a-4674-85c0-2bc00380f549" target="amazon">
+            <a class="recommendation"
+               href="https://www.amazon.com/shop/chrchie?ccs_id=2afe55c6-d70a-4674-85c0-2bc00380f549" target="amazon">
               <img src="img/amazon.png" alt="Amazon Pets"/>
               <div>
                 <h3>Favorites on Amazon</h3>
@@ -416,7 +451,45 @@
       </section>
 
       <section>
-        <h2>Meet some of the critters</h2>
+        <h2 style="font-family: 'Source Serif 4'; font-size: 60px;">Meet some of the critters</h2>
+
+        <div id="critters">
+          <div class="critter">
+            <img src="img/pets/Gooby.png" width="160" height="160" alt="Gooby"/>
+            <span>Leopard Gecko</span>
+            <div>Gooby</div>
+          </div>
+          <div class="critter">
+            <img src="img/pets/Freya.png" width="160" height="160" alt="Freya"/>
+            <span>Oreiental Shorthair Cat</span>
+            <div>Freya</div>
+          </div>
+          <div class="critter">
+            <img src="img/pets/Alazar.png" width="160" height="160" alt="Alazar"/>
+            <span>Leopard Gecko</span>
+            <div>Alazar</div>
+          </div>
+          <div class="critter">
+            <img src="img/pets/Tobias.png" width="160" height="160" alt="Tobias"/>
+            <span>Siamese Cat</span>
+            <div>Tobias</div>
+          </div>
+          <div class="critter">
+            <img src="img/pets/Basil.png" width="160" height="160" alt="Basil"/>
+            <span>Grammastola Pulchripes</span>
+            <div>Basil</div>
+          </div>
+          <div class="critter">
+            <img src="img/pets/Beetle.png" width="160" height="160" alt="Blue Death Feigning beetles"/>
+            <span>Beetles</span>
+            <div>Blue Death Feigning</div>
+          </div>
+          <div class="critter">
+            <img src="img/pets/megumi.png" width="160" height="160" alt="Megumi"/>
+            <span>Jumping Spider</span>
+            <div>Megumi</div>
+          </div>
+        </div>
       </section>
     </main>
   </body>
