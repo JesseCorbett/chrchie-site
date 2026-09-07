@@ -45,6 +45,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
 
     <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 180px;
+      }
+
       :root {
         --chr-dark: #261A3C;
         --chr-text: var(--chr-dark);
@@ -425,6 +430,10 @@
       .critter.reveal:nth-child(7) { transition-delay: 0.3s; }
 
       @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
         .reveal {
           opacity: 1 !important;
           transform: none !important;
@@ -461,7 +470,7 @@
       <a href="#design">
         Design Work
       </a>
-      <a>
+      <a href="#chat">
         Let’s chat →
       </a>
     </header>
@@ -540,12 +549,12 @@
             Spotify
           </a>
           <a href="https://www.orchideight.com/collections/chrchie" target="orchid8">
-            <img src="img/social/orchid8.png" style="border-radius: 0" width="20" height="20" alt="Orchid8"
+            <img src="img/social/orchid8.png" width="20" height="20" alt="Orchid8"
                  draggable="false">
             Merch
           </a>
           <a href="https://labbrats.tv" target="labbrats">
-            <img src="img/social/labbrats.png" style="border-radius: 0" width="20" height="20" alt="Lab Brats"
+            <img src="img/social/labbrats.png" width="20" height="20" alt="Lab Brats"
                  draggable="false">
             Lab Brats Streamer Group
           </a>
@@ -598,7 +607,7 @@
         </div>
       </section>
 
-      <section style="background: url('img/bg.png'); background-size: cover">
+      <section style="background: url('img/bg.png'); background-size: cover; margin: 0 -20px">
         <h2 class="reveal" style="font-family: 'Source Serif 4'; font-size: 60px;">Meet some of the critters</h2>
 
         <div id="critters">
@@ -656,7 +665,7 @@
       </section>
     </main>
 
-    <footer class="reveal">
+    <footer id="chat" class="reveal">
       <h2>Let’s chat!</h2>
       <a href="mailto:hi@chrchie.com" target="email" style="padding: 16px; width: fit-content; margin: 30px auto 0">
         <img src="img/social/email_light.svg" width="20" height="20" alt="Email" draggable="false">
