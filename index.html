@@ -8,6 +8,8 @@
     <meta name="description" content="content creator and streamer 💜 lizard girl 🦎 musician 🎸 5+ years experience as a product designer (ux/ui) in tech 💼 part of the streamer group LAB BRATS 🦠">
 
     <meta name="theme-color" content="#ebdcff">
+    <link rel="icon" type="image/avif" href="img/favicon.avif">
+    <link rel="icon" type="image/webp" href="img/favicon.webp">
     <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
     <link href="img/icon.png" rel="apple-touch-icon">
 
@@ -126,10 +128,20 @@
 
       header > #logo {
         margin-right: auto;
+        display: flex;
+        align-items: center;
       }
 
-      #logo > img {
+      #logo picture {
+        display: flex;
+        align-items: center;
+      }
+
+      #logo > img,
+      #logo picture > img {
         height: 46px;
+        width: auto;
+        display: block;
       }
 
       main {
@@ -157,9 +169,18 @@
         border-radius: 8px;
       }
 
-      #hero #hero-img > img {
+      #hero #hero-img > img,
+      #hero #hero-img > picture {
         width: 100%;
         height: 100%;
+        display: block;
+      }
+
+      #hero #hero-img picture > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        display: block;
       }
 
       #about {
@@ -174,10 +195,18 @@
         gap: 22px;
       }
 
+      #about > #title picture {
+        display: inline-flex;
+        flex-shrink: 0;
+        width: 81px;
+        height: 81px;
+      }
+
       #about > #title img {
         width: 81px;
         height: 81px;
         border-radius: 100%;
+        display: block;
       }
 
       #about > #title h1 {
@@ -245,10 +274,21 @@
         border-radius: 8px;
       }
 
-      #links > a > img {
+      #links > a > img,
+      #links > a picture {
         width: 30px;
         height: 30px;
         margin: -5px 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      #links > a > img,
+      #links > a picture > img {
+        width: 30px;
+        height: 30px;
         border-radius: 100%;
         user-select: none;
         object-fit: contain;
@@ -287,11 +327,19 @@
         height: 100%;
       }
 
-      #shop > #shop-img > img {
+      #shop > #shop-img > img,
+      #shop > #shop-img > picture {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #shop > #shop-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 8px;
+        display: block;
       }
 
       #shop .recommendation {
@@ -308,10 +356,28 @@
         gap: 16px;
       }
 
+      #shop .recommendation picture {
+        display: inline-flex;
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+      }
+
       #shop .recommendation img {
         width: 80px;
         height: 80px;
         object-fit: contain;
+      }
+
+      #critters-section {
+        background-image: url('img/bg.png');
+        background-image: image-set(
+          url('img/bg.avif') type('image/avif'),
+          url('img/bg.webp') type('image/webp'),
+          url('img/bg.png') type('image/png')
+        );
+        background-size: cover;
+        margin: 0 -20px;
       }
 
       #critters {
@@ -329,7 +395,16 @@
         max-width: 200px;
       }
 
+      #critters .critter picture {
+        display: block;
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+      }
+
       #critters .critter img {
+        width: 100%;
+        height: 100%;
         object-fit: contain;
       }
 
@@ -371,10 +446,16 @@
         column-gap: 32px;
       }
 
-      #gallery > img {
+      #gallery > img,
+      #gallery > picture {
         display: block;
         width: 100%;
         padding: 32px 0;
+      }
+
+      #gallery > picture > img {
+        display: block;
+        width: 100%;
       }
 
       footer {
@@ -456,7 +537,11 @@
     </div>
     <header>
       <a id="logo" href="#">
-        <img src="img/logo.png" alt="chrchie logo"/>
+        <picture>
+          <source srcset="img/logo.avif" type="image/avif">
+          <source srcset="img/logo.webp" type="image/webp">
+          <img src="img/logo.png" alt="chrchie logo"/>
+        </picture>
       </a>
       <a href="#links">
         Links
@@ -479,7 +564,11 @@
         <div id="hero">
           <div id="about" class="reveal">
             <div id="title">
-              <img src="img/icon.png" alt="chrchie icon"/>
+              <picture>
+                <source srcset="img/icon.avif" type="image/avif">
+                <source srcset="img/icon.webp" type="image/webp">
+                <img src="img/icon.png" alt="chrchie icon"/>
+              </picture>
               <h1>chrchie</h1>
             </div>
             <p>💜 exotic pet creator &amp; critter keeper</p>
@@ -511,7 +600,11 @@
             </div>
           </div>
           <div id="hero-img" class="reveal">
-            <img src="img/hero.png" alt="hero image"/>
+            <picture>
+              <source srcset="img/hero.avif" type="image/avif">
+              <source srcset="img/hero.webp" type="image/webp">
+              <img src="img/hero.png" alt="hero image"/>
+            </picture>
           </div>
         </div>
         <div id="links" class="reveal">
@@ -520,8 +613,12 @@
             hi@chrchie.com
           </a>
           <a href="https://beacons.ai/chrchie/mediakit" target="mediakit">
-            <img src="img/graph.png" style="filter: invert(1);border-radius: 0" width="20" height="20" alt="Media kit"
-                 draggable="false">
+            <picture>
+              <source srcset="img/graph.avif" type="image/avif">
+              <source srcset="img/graph.webp" type="image/webp">
+              <img src="img/graph.png" style="filter: invert(1);border-radius: 0" width="20" height="20" alt="Media kit"
+                   draggable="false">
+            </picture>
             Media Kit
           </a>
           <a href="https://www.twitch.tv/chrchie" target="twitch">
@@ -549,13 +646,21 @@
             Spotify
           </a>
           <a href="https://www.orchideight.com/collections/chrchie" target="orchid8">
-            <img src="img/social/orchid8.png" width="20" height="20" alt="Orchid8"
-                 draggable="false">
+            <picture>
+              <source srcset="img/social/orchid8.avif" type="image/avif">
+              <source srcset="img/social/orchid8.webp" type="image/webp">
+              <img src="img/social/orchid8.png" width="20" height="20" alt="Orchid8"
+                   draggable="false">
+            </picture>
             Merch
           </a>
           <a href="https://labbrats.tv" target="labbrats">
-            <img src="img/social/labbrats.png" width="20" height="20" alt="Lab Brats"
-                 draggable="false">
+            <picture>
+              <source srcset="img/social/labbrats.avif" type="image/avif">
+              <source srcset="img/social/labbrats.webp" type="image/webp">
+              <img src="img/social/labbrats.png" width="20" height="20" alt="Lab Brats"
+                   draggable="false">
+            </picture>
             Lab Brats Streamer Group
           </a>
         </div>
@@ -565,13 +670,21 @@
         <h2 class="reveal">Shop recommendations</h2>
         <div id="shop" class="reveal">
           <div id="shop-img">
-            <img src="img/recommendations.png" alt="the critters"/>
+            <picture>
+              <source srcset="img/recommendations.avif" type="image/avif">
+              <source srcset="img/recommendations.webp" type="image/webp">
+              <img src="img/recommendations.png" alt="the critters"/>
+            </picture>
           </div>
           <div id="recommendations">
             <hr>
             <a class="recommendation" href="https://partners.zenpropets.com/go/chrchieg6tr/zen-habitats"
                target="zenhabitats">
-              <img src="img/zen-habitats.png" alt="Zen Habitats"/>
+              <picture>
+                <source srcset="img/zen-habitats.avif" type="image/avif">
+                <source srcset="img/zen-habitats.webp" type="image/webp">
+                <img src="img/zen-habitats.png" alt="Zen Habitats"/>
+              </picture>
               <div>
                 <h3>Zen Habitats</h3>
                 <span>For all your enclosure needs!</span>
@@ -579,7 +692,11 @@
             </a>
             <hr>
             <a class="recommendation" href="https://chewpanions.chewy.com/627f8792644" target="chewy">
-              <img src="img/chewy.png" alt="Chewy Pets"/>
+              <picture>
+                <source srcset="img/chewy.avif" type="image/avif">
+                <source srcset="img/chewy.webp" type="image/webp">
+                <img src="img/chewy.png" alt="Chewy Pets"/>
+              </picture>
               <div>
                 <h3>Chewy Favorites</h3>
                 <span>My favorite place to shop for pet supplies</span>
@@ -588,7 +705,11 @@
             <hr>
             <a class="recommendation"
                href="https://www.amazon.com/shop/chrchie?ccs_id=2afe55c6-d70a-4674-85c0-2bc00380f549" target="amazon">
-              <img src="img/amazon.png" alt="Amazon Pets"/>
+              <picture>
+                <source srcset="img/amazon.avif" type="image/avif">
+                <source srcset="img/amazon.webp" type="image/webp">
+                <img src="img/amazon.png" alt="Amazon Pets"/>
+              </picture>
               <div>
                 <h3>Favorites on Amazon</h3>
                 <span>For kitties, geckos, bugs, invertebrates, and more!</span>
@@ -596,7 +717,11 @@
             </a>
             <hr>
             <a class="recommendation" href="https://us.blueriverdiets.com/?ref=chrchieg6tr" target="blueriverdiets">
-              <img src="img/blue-river.png" alt="Blue River Diets"/>
+              <picture>
+                <source srcset="img/blue-river.avif" type="image/avif">
+                <source srcset="img/blue-river.webp" type="image/webp">
+                <img src="img/blue-river.png" alt="Blue River Diets"/>
+              </picture>
               <div>
                 <h3>Blue River Diets</h3>
                 <span>CGD for the crested gecko owners!</span>
@@ -607,42 +732,70 @@
         </div>
       </section>
 
-      <section style="background: url('img/bg.png'); background-size: cover; margin: 0 -20px">
+      <section id="critters-section">
         <h2 class="reveal" style="font-family: 'Source Serif 4'; font-size: 60px;">Meet some of the critters</h2>
 
         <div id="critters">
           <div class="critter reveal">
-            <img src="img/pets/Gooby.png" width="160" height="160" alt="Gooby"/>
+            <picture>
+              <source srcset="img/pets/Gooby.avif" type="image/avif">
+              <source srcset="img/pets/Gooby.webp" type="image/webp">
+              <img src="img/pets/Gooby.png" width="160" height="160" alt="Gooby"/>
+            </picture>
             <span>Leopard Gecko</span>
             <div>Gooby</div>
           </div>
           <div class="critter reveal">
-            <img src="img/pets/Freya.png" width="160" height="160" alt="Freya"/>
+            <picture>
+              <source srcset="img/pets/Freya.avif" type="image/avif">
+              <source srcset="img/pets/Freya.webp" type="image/webp">
+              <img src="img/pets/Freya.png" width="160" height="160" alt="Freya"/>
+            </picture>
             <span>Oreiental Shorthair Cat</span>
             <div>Freya</div>
           </div>
           <div class="critter reveal">
-            <img src="img/pets/Alazar.png" width="160" height="160" alt="Alazar"/>
+            <picture>
+              <source srcset="img/pets/Alazar.avif" type="image/avif">
+              <source srcset="img/pets/Alazar.webp" type="image/webp">
+              <img src="img/pets/Alazar.png" width="160" height="160" alt="Alazar"/>
+            </picture>
             <span>Leopard Gecko</span>
             <div>Alazar</div>
           </div>
           <div class="critter reveal">
-            <img src="img/pets/Tobias.png" width="160" height="160" alt="Tobias"/>
+            <picture>
+              <source srcset="img/pets/Tobias.avif" type="image/avif">
+              <source srcset="img/pets/Tobias.webp" type="image/webp">
+              <img src="img/pets/Tobias.png" width="160" height="160" alt="Tobias"/>
+            </picture>
             <span>Siamese Cat</span>
             <div>Tobias</div>
           </div>
           <div class="critter reveal">
-            <img src="img/pets/Basil.png" width="160" height="160" alt="Basil"/>
+            <picture>
+              <source srcset="img/pets/Basil.avif" type="image/avif">
+              <source srcset="img/pets/Basil.webp" type="image/webp">
+              <img src="img/pets/Basil.png" width="160" height="160" alt="Basil"/>
+            </picture>
             <span>Grammastola Pulchripes</span>
             <div>Basil</div>
           </div>
           <div class="critter reveal">
-            <img src="img/pets/Beetle.png" width="160" height="160" alt="Blue Death Feigning beetles"/>
+            <picture>
+              <source srcset="img/pets/Beetle.avif" type="image/avif">
+              <source srcset="img/pets/Beetle.webp" type="image/webp">
+              <img src="img/pets/Beetle.png" width="160" height="160" alt="Blue Death Feigning beetles"/>
+            </picture>
             <span>Beetles</span>
             <div>Blue Death Feigning</div>
           </div>
           <div class="critter reveal">
-            <img src="img/pets/megumi.png" width="160" height="160" alt="Megumi"/>
+            <picture>
+              <source srcset="img/pets/megumi.avif" type="image/avif">
+              <source srcset="img/pets/megumi.webp" type="image/webp">
+              <img src="img/pets/megumi.png" width="160" height="160" alt="Megumi"/>
+            </picture>
             <span>Jumping Spider</span>
             <div>Megumi</div>
           </div>
@@ -654,13 +807,41 @@
         <h4 class="reveal">Things I’ve created outside of corporate! :) I use Figma, Adobe CC, and Procreate.</h4>
 
         <div id="gallery">
-          <img class="reveal" src="img/design/tootiepies.png" alt="tootiepies"/>
-          <img class="reveal" src="img/design/opensauce.png" alt="opensauce"/>
-          <img class="reveal" src="img/design/neuroapp.png" alt="neuro app"/>
-          <img class="reveal" src="img/design/neuro.png" alt="neuro stream elements"/>
-          <img class="reveal" src="img/design/ministickers.png" alt="minikomew stickers"/>
-          <img class="reveal" src="img/design/businesscards.png" alt="business cards"/>
-          <img class="reveal" src="img/design/labbrats.png" alt="lab brats logo"/>
+          <picture class="reveal">
+            <source srcset="img/design/tootiepies.avif" type="image/avif">
+            <source srcset="img/design/tootiepies.webp" type="image/webp">
+            <img src="img/design/tootiepies.png" alt="tootiepies"/>
+          </picture>
+          <picture class="reveal">
+            <source srcset="img/design/opensauce.avif" type="image/avif">
+            <source srcset="img/design/opensauce.webp" type="image/webp">
+            <img src="img/design/opensauce.png" alt="opensauce"/>
+          </picture>
+          <picture class="reveal">
+            <source srcset="img/design/neuroapp.avif" type="image/avif">
+            <source srcset="img/design/neuroapp.webp" type="image/webp">
+            <img src="img/design/neuroapp.png" alt="neuro app"/>
+          </picture>
+          <picture class="reveal">
+            <source srcset="img/design/neuro.avif" type="image/avif">
+            <source srcset="img/design/neuro.webp" type="image/webp">
+            <img src="img/design/neuro.png" alt="neuro stream elements"/>
+          </picture>
+          <picture class="reveal">
+            <source srcset="img/design/ministickers.avif" type="image/avif">
+            <source srcset="img/design/ministickers.webp" type="image/webp">
+            <img src="img/design/ministickers.png" alt="minikomew stickers"/>
+          </picture>
+          <picture class="reveal">
+            <source srcset="img/design/businesscards.avif" type="image/avif">
+            <source srcset="img/design/businesscards.webp" type="image/webp">
+            <img src="img/design/businesscards.png" alt="business cards"/>
+          </picture>
+          <picture class="reveal">
+            <source srcset="img/design/labbrats.avif" type="image/avif">
+            <source srcset="img/design/labbrats.webp" type="image/webp">
+            <img src="img/design/labbrats.png" alt="lab brats logo"/>
+          </picture>
         </div>
       </section>
     </main>
