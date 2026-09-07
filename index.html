@@ -3,14 +3,45 @@
   <head>
     <meta charset="UTF-8">
     <title>chrchie</title>
+    <meta property="og:title" content="chrchie">
+    <meta name="description" content="content creator and streamer 💜 lizard girl 🦎 musician 🎸 5+ years experience as a product designer (ux/ui) in tech 💼 part of the streamer group LAB BRATS 🦠">
 
     <meta name="theme-color" content="#ebdcff">
+    <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="img/icon.png" rel="apple-touch-icon">
+
+    <!--  Made by hoopy  -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chrchie.com/">
+    <meta property="og:site_name" content="chrchie">
+    <meta property="og:title" content="chrchie">
+    <meta property="og:description" content="content creator and streamer 💜 lizard girl 🦎 musician 🎸 5+ years experience as a product designer (ux/ui) in tech 💼 part of the streamer group LAB BRATS 🦠">
+
+    <meta property="twitter:description" content="content creator and streamer 💜 lizard girl 🦎 musician 🎸 5+ years experience as a product designer (ux/ui) in tech 💼 part of the streamer group LAB BRATS 🦠">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@chrchie">
+    <meta name="twitter:title" content="chrchie">
+    <meta name="twitter:image" content="https://chrchie.com/img/logo.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "chrchie",
+        "url": "https://chrchie.com/",
+        "image": "https://chrchie.com/img/icon.png",
+        "sameAs": [
+          "https://www.twitch.tv/chrchie",
+          "https://www.youtube.com/channel/UCv7zvIiKMxzqraLx5QGiCbw",
+          "https://x.com/chrchie",
+          "https://www.instagram.com/chrchie/"
+        ]
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
 
     <style>
       :root {
@@ -29,9 +60,10 @@
       #hero-section {
         background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1280 658.84' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><linearGradient id='grad' gradientUnits='userSpaceOnUse' x1='-10' x2='10' y1='0' y2='0' gradientTransform='matrix(3.9189e-15 32.942 -64 2.0171e-15 640 329.42)'><stop stop-color='rgba(235,220,255,1)' offset='0'/><stop stop-color='rgba(255,244,223,1)' offset='1'/></linearGradient></defs></svg>");
         margin: -60px -20px 0;
+        padding: 60px 20px;
       }
 
-      h1, h2, h3 {
+      h1, h2, h3, h4 {
         margin: 0;
         font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
         text-align: center;
@@ -107,6 +139,7 @@
         aspect-ratio: 508 / 326;
         display: block;
         width: 500px;
+        max-width: 100%;
         border-radius: 4px;
       }
 
@@ -174,12 +207,13 @@
 
       #links {
         display: grid;
-        grid-template-columns: 500px 500px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 500px));
         justify-content: center;
         width: 100%;
         gap: 20px;
       }
 
+      footer > a,
       #links > a {
         font-family: "Geist Mono", monospace;
         font-size: 19px;
@@ -291,6 +325,63 @@
       #critters .critter div {
         font-size: 36px;
         font-family: "Radio Canada Big", sans-serif;
+      }
+
+      #design {
+        font-family: Inter, sans-serif;
+        padding: 0 44px;
+        gap: 24px;
+      }
+
+      #design h2 {
+        font-size: 48px;
+        text-align: start;
+        font-weight: 600;
+      }
+
+      #design h4 {
+        font-size: 20px;
+        text-align: start;
+        color: rgba(0, 0, 0, 0.55);
+        line-height: 1.45;
+        font-weight: 400;
+        letter-spacing: 0;
+      }
+
+      #gallery {
+        column-count: 3;
+        column-gap: 32px;
+      }
+
+      #gallery > img {
+        display: block;
+        width: 100%;
+        padding: 32px 0;
+      }
+
+      footer {
+        background-color: rgb(246, 248, 251);
+        padding: 80px 20px;
+      }
+
+      @media screen and (max-width: 800px) {
+        header > a:not(#logo) {
+          display: none;
+        }
+
+        section {
+          padding-top: 40px;
+        }
+
+        #gallery {
+          column-count: 1;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        #gallery {
+          column-count: 2;
+        }
       }
     </style>
   </head>
@@ -492,9 +583,28 @@
         </div>
       </section>
 
-      <section>
-        <h1>Design tidbits</h1>
+      <section id="design">
+        <h2>Design tidbits</h2>
+        <h4>Things I’ve created outside of corporate! :) I use Figma, Adobe CC, and Procreate.</h4>
+
+        <div id="gallery">
+          <img src="img/design/tootiepies.png" alt="tootiepies"/>
+          <img src="img/design/opensauce.png" alt="opensauce"/>
+          <img src="img/design/neuroapp.png" alt="neuro app"/>
+          <img src="img/design/neuro.png" alt="neuro stream elements"/>
+          <img src="img/design/ministickers.png" alt="minikomew stickers"/>
+          <img src="img/design/businesscards.png" alt="business cards"/>
+          <img src="img/design/labbrats.png" alt="lab brats logo"/>
+        </div>
       </section>
     </main>
+
+    <footer>
+      <h2>Let’s chat!</h2>
+      <a href="mailto:hi@chrchie.com" target="email" style="padding: 16px; width: fit-content; margin: 30px auto 0">
+        <img src="img/social/email_light.svg" width="20" height="20" alt="Email" draggable="false">
+        hi@chrchie.com
+      </a>
+    </footer>
   </body>
 </html>
