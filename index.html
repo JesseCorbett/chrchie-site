@@ -391,7 +391,46 @@
           column-count: 2;
         }
       }
+
+      /* Scroll Reveal Animation (matches Figma Appear behavior) */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
+                    transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        will-change: opacity, transform;
+      }
+
+      .reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Subtle sequential reveals */
+      #hero-img.reveal { transition-delay: 0.1s; }
+      .critter.reveal:nth-child(2) { transition-delay: 0.05s; }
+      .critter.reveal:nth-child(3) { transition-delay: 0.1s; }
+      .critter.reveal:nth-child(4) { transition-delay: 0.15s; }
+      .critter.reveal:nth-child(5) { transition-delay: 0.2s; }
+      .critter.reveal:nth-child(6) { transition-delay: 0.25s; }
+      .critter.reveal:nth-child(7) { transition-delay: 0.3s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
     </style>
+    <noscript>
+      <style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
   </head>
 
   <body>
@@ -420,7 +459,7 @@
     <main>
       <section id="hero-section">
         <div id="hero">
-          <div id="about">
+          <div id="about" class="reveal">
             <div id="title">
               <img src="img/icon.png" alt="chrchie icon"/>
               <h1>chrchie</h1>
@@ -453,11 +492,11 @@
               </a>
             </div>
           </div>
-          <div id="hero-img">
+          <div id="hero-img" class="reveal">
             <img src="img/hero.png" alt="hero image"/>
           </div>
         </div>
-        <div id="links">
+        <div id="links" class="reveal">
           <a href="mailto:hi@chrchie.com" target="email">
             <img src="img/social/email_light.svg" width="20" height="20" alt="Email" draggable="false">
             hi@chrchie.com
@@ -504,8 +543,8 @@
       </section>
 
       <section>
-        <h2>Shop recommendations</h2>
-        <div id="shop">
+        <h2 class="reveal">Shop recommendations</h2>
+        <div id="shop" class="reveal">
           <div id="shop-img">
             <img src="img/recommendations.png" alt="the critters"/>
           </div>
@@ -550,40 +589,40 @@
       </section>
 
       <section>
-        <h2 style="font-family: 'Source Serif 4'; font-size: 60px;">Meet some of the critters</h2>
+        <h2 class="reveal" style="font-family: 'Source Serif 4'; font-size: 60px;">Meet some of the critters</h2>
 
         <div id="critters">
-          <div class="critter">
+          <div class="critter reveal">
             <img src="img/pets/Gooby.png" width="160" height="160" alt="Gooby"/>
             <span>Leopard Gecko</span>
             <div>Gooby</div>
           </div>
-          <div class="critter">
+          <div class="critter reveal">
             <img src="img/pets/Freya.png" width="160" height="160" alt="Freya"/>
             <span>Oreiental Shorthair Cat</span>
             <div>Freya</div>
           </div>
-          <div class="critter">
+          <div class="critter reveal">
             <img src="img/pets/Alazar.png" width="160" height="160" alt="Alazar"/>
             <span>Leopard Gecko</span>
             <div>Alazar</div>
           </div>
-          <div class="critter">
+          <div class="critter reveal">
             <img src="img/pets/Tobias.png" width="160" height="160" alt="Tobias"/>
             <span>Siamese Cat</span>
             <div>Tobias</div>
           </div>
-          <div class="critter">
+          <div class="critter reveal">
             <img src="img/pets/Basil.png" width="160" height="160" alt="Basil"/>
             <span>Grammastola Pulchripes</span>
             <div>Basil</div>
           </div>
-          <div class="critter">
+          <div class="critter reveal">
             <img src="img/pets/Beetle.png" width="160" height="160" alt="Blue Death Feigning beetles"/>
             <span>Beetles</span>
             <div>Blue Death Feigning</div>
           </div>
-          <div class="critter">
+          <div class="critter reveal">
             <img src="img/pets/megumi.png" width="160" height="160" alt="Megumi"/>
             <span>Jumping Spider</span>
             <div>Megumi</div>
@@ -592,27 +631,43 @@
       </section>
 
       <section id="design">
-        <h2>Design tidbits</h2>
-        <h4>Things I’ve created outside of corporate! :) I use Figma, Adobe CC, and Procreate.</h4>
+        <h2 class="reveal">Design tidbits</h2>
+        <h4 class="reveal">Things I’ve created outside of corporate! :) I use Figma, Adobe CC, and Procreate.</h4>
 
         <div id="gallery">
-          <img src="img/design/tootiepies.png" alt="tootiepies"/>
-          <img src="img/design/opensauce.png" alt="opensauce"/>
-          <img src="img/design/neuroapp.png" alt="neuro app"/>
-          <img src="img/design/neuro.png" alt="neuro stream elements"/>
-          <img src="img/design/ministickers.png" alt="minikomew stickers"/>
-          <img src="img/design/businesscards.png" alt="business cards"/>
-          <img src="img/design/labbrats.png" alt="lab brats logo"/>
+          <img class="reveal" src="img/design/tootiepies.png" alt="tootiepies"/>
+          <img class="reveal" src="img/design/opensauce.png" alt="opensauce"/>
+          <img class="reveal" src="img/design/neuroapp.png" alt="neuro app"/>
+          <img class="reveal" src="img/design/neuro.png" alt="neuro stream elements"/>
+          <img class="reveal" src="img/design/ministickers.png" alt="minikomew stickers"/>
+          <img class="reveal" src="img/design/businesscards.png" alt="business cards"/>
+          <img class="reveal" src="img/design/labbrats.png" alt="lab brats logo"/>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="reveal">
       <h2>Let’s chat!</h2>
       <a href="mailto:hi@chrchie.com" target="email" style="padding: 16px; width: fit-content; margin: 30px auto 0">
         <img src="img/social/email_light.svg" width="20" height="20" alt="Email" draggable="false">
         hi@chrchie.com
       </a>
     </footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
