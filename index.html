@@ -59,7 +59,7 @@
       }
 
       #hero-section {
-        background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1280 658.84' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><linearGradient id='grad' gradientUnits='userSpaceOnUse' x1='-10' x2='10' y1='0' y2='0' gradientTransform='matrix(3.9189e-15 32.942 -64 2.0171e-15 640 329.42)'><stop stop-color='rgba(235,220,255,1)' offset='0'/><stop stop-color='rgba(255,244,223,1)' offset='1'/></linearGradient></defs></svg>");
+        background-image: linear-gradient(to bottom, rgba(235, 220, 255, 1), rgba(255, 244, 223, 1));
         margin: -60px -20px 0;
         padding: 120px 20px;
       }
@@ -110,6 +110,13 @@
         padding: 0 20px;
         font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
         z-index: 1;
+        transition: background-color 0.3s ease;
+      }
+
+      header.scrolled {
+        background-color: rgba(235, 220, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
       }
 
       header > #logo {
@@ -142,7 +149,7 @@
         display: block;
         width: 500px;
         max-width: 100%;
-        border-radius: 4px;
+        border-radius: 8px;
       }
 
       #hero #hero-img > img {
@@ -230,6 +237,7 @@
         gap: 14px;
         padding: 22px;
         line-height: 1;
+        border-radius: 8px;
       }
 
       #links > a > img {
@@ -278,6 +286,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 8px;
       }
 
       #shop .recommendation {
@@ -364,7 +373,7 @@
       }
 
       footer {
-        background-color: rgb(246, 248, 251);
+        background-image: linear-gradient(to top, rgba(235, 220, 255, 1), rgba(255, 244, 223, 1));
         padding: 80px 20px;
       }
 
@@ -531,12 +540,13 @@
             Spotify
           </a>
           <a href="https://www.orchideight.com/collections/chrchie" target="orchid8">
-            <img src="img/social/orchideight.png" style="border-radius: 0" width="20" height="20" alt="Twitch"
+            <img src="img/social/orchid8.png" style="border-radius: 0" width="20" height="20" alt="Orchid8"
                  draggable="false">
             Merch
           </a>
           <a href="https://labbrats.tv" target="labbrats">
-            <span>🦠</span>
+            <img src="img/social/labbrats.png" style="border-radius: 0" width="20" height="20" alt="Lab Brats"
+                 draggable="false">
             Lab Brats Streamer Group
           </a>
         </div>
@@ -588,7 +598,7 @@
         </div>
       </section>
 
-      <section>
+      <section style="background: url('img/bg.png'); background-size: cover">
         <h2 class="reveal" style="font-family: 'Source Serif 4'; font-size: 60px;">Meet some of the critters</h2>
 
         <div id="critters">
@@ -668,6 +678,19 @@
       });
 
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      const header = document.querySelector('header');
+      const heroSection = document.getElementById('hero-section');
+
+      function updateHeader() {
+        if (!header || !heroSection) return;
+        const halfwayPast = heroSection.getBoundingClientRect().top + heroSection.offsetHeight / 2 <= 0;
+        header.classList.toggle('scrolled', halfwayPast);
+      }
+
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      window.addEventListener('resize', updateHeader, { passive: true });
+      updateHeader();
     </script>
   </body>
 </html>
