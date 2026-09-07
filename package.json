@@ -4,8 +4,7 @@
   "description": "",
   "main": "build.mjs",
   "scripts": {
-    "build": "node build.mjs",
-    "convert-images": "node convert-images.mjs"
+    "build": "node build.mjs"
   },
   "keywords": [],
   "author": "jesselcorbett@gmail.com",
@@ -13,7 +12,6 @@
   "type": "module",
   "dependencies": {
     "cheerio": "^1.2.0",
-    "playwright": "^1.60.0",
-    "sharp": "^0.34.0"
+    "playwright": "^1.60.0"
   }
 }
