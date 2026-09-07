@@ -60,7 +60,7 @@
       #hero-section {
         background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1280 658.84' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><linearGradient id='grad' gradientUnits='userSpaceOnUse' x1='-10' x2='10' y1='0' y2='0' gradientTransform='matrix(3.9189e-15 32.942 -64 2.0171e-15 640 329.42)'><stop stop-color='rgba(235,220,255,1)' offset='0'/><stop stop-color='rgba(255,244,223,1)' offset='1'/></linearGradient></defs></svg>");
         margin: -60px -20px 0;
-        padding: 60px 20px;
+        padding: 120px 20px;
       }
 
       h1, h2, h3, h4 {
@@ -108,6 +108,7 @@
         font-weight: 500;
         padding: 0 20px;
         font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
+        z-index: 1;
       }
 
       header > #logo {
@@ -381,6 +382,10 @@
       }
 
       @media screen and (max-width: 1000px) {
+        #hero-section {
+          padding-top: 100px;
+        }
+
         #gallery {
           column-count: 2;
         }
