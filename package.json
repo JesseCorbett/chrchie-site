@@ -1,0 +1,17 @@
+{
+  "name": "chrchie-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.mjs",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "keywords": [],
+  "author": "jesselcorbett@gmail.com",
+  "license": "Proprietary",
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "playwright": "^1.60.0"
+  }
+}

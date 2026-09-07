@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <title>chrchie</title>
 
+    <meta name="theme-color" content="#ebdcff">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Radio+Canada:ital,wght@0,400..700;1,400..700&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+        rel="stylesheet">
 
     <style>
       :root {
@@ -15,24 +19,38 @@
       }
 
       body {
-        background-color: #ffffff;
+        background-color: #ebdcff;
         margin: 0;
         font-family: 'Radio Canada', sans-serif;
         color: var(--chr-text);
         font-size: 20px;
       }
 
-      #hero-bg {
+      #hero-section {
         background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1280 658.84' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><linearGradient id='grad' gradientUnits='userSpaceOnUse' x1='-10' x2='10' y1='0' y2='0' gradientTransform='matrix(3.9189e-15 32.942 -64 2.0171e-15 640 329.42)'><stop stop-color='rgba(235,220,255,1)' offset='0'/><stop stop-color='rgba(255,244,223,1)' offset='1'/></linearGradient></defs></svg>");
-        height: 100vh;
-        margin: 0 0 -100vh;
+        margin: -60px -20px 0;
+      }
+
+      h1, h2, h3 {
+        margin: 0;
+        font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
+        text-align: center;
       }
 
       h1 {
         font-size: 80px;
         font-weight: 600;
-        margin: 0;
-        font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
+      }
+
+      h2 {
+        font-size: 40px;
+        font-weight: 500;
+      }
+
+      h3 {
+        font-size: 20px;
+        font-weight: 500;
+        font-family: 'Radio Canada Big', sans-serif;
       }
 
       a {
@@ -54,7 +72,7 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
         padding: 0 20px;
         font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
@@ -65,14 +83,15 @@
       }
 
       #logo > img {
-        height: 40px;
+        height: 46px;
       }
 
       main {
-        padding: 140px 20px 0;
+        background-color: white;
+        padding: 60px 20px 0;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         gap: 32px;
       }
 
@@ -98,6 +117,8 @@
 
       #about {
         letter-spacing: -0.8px;
+        display: flex;
+        flex-direction: column;
       }
 
       #about > #title {
@@ -116,9 +137,44 @@
         letter-spacing: -2px;
       }
 
+      #about .stats {
+        margin: auto auto 0 0;
+        padding: 16px 8px 8px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        color: white;
+      }
+
+      #about .stats > a {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+      }
+
+      #about .stats > a > img {
+        user-select: none;
+      }
+
+      section {
+        padding: 80px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+      }
+
       #links {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 500px));
+        grid-template-columns: 500px 500px;
         justify-content: center;
         width: 100%;
         gap: 20px;
@@ -137,6 +193,74 @@
         padding: 22px;
         line-height: 1;
       }
+
+      #links > a > img {
+        width: 30px;
+        height: 30px;
+        margin: -5px 0;
+        border-radius: 100%;
+        user-select: none;
+        object-fit: contain;
+      }
+
+      #links > a > span {
+        font-size: 20px;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #shop {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 600px));
+        justify-content: center;
+      }
+
+      #shop hr {
+        color: rgb(219, 224, 236);
+        margin: 0;
+      }
+
+      #shop h3 {
+        width: fit-content;
+      }
+
+      #shop span {
+        font-family: 'Source Serif 4', serif;
+      }
+
+      #shop > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      #shop > #shop-img > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      #shop .recommendation {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 24px 0;
+      }
+
+      #shop .recommendation > div {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      #shop .recommendation img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
     </style>
   </head>
 
@@ -145,7 +269,7 @@
     </div>
     <header>
       <a id="logo" href="#">
-        <img src="logo.png" alt="chrchie logo"/>
+        <img src="img/logo.png" alt="chrchie logo"/>
       </a>
       <a href="#links">
         Links
@@ -164,53 +288,136 @@
       </a>
     </header>
     <main>
-      <div id="hero">
-        <div id="about">
-          <div id="title">
-            <img src="icon.png" alt="chrchie icon"/>
-            <h1>chrchie</h1>
+      <section id="hero-section">
+        <div id="hero">
+          <div id="about">
+            <div id="title">
+              <img src="img/icon.png" alt="chrchie icon"/>
+              <h1>chrchie</h1>
+            </div>
+            <p>💜 exotic pet creator &amp; critter keeper</p>
+            <p>🦎 lizard girl vtuber + livestreamer</p>
+            <p>🎸 musician &amp; singer-songwriter</p>
+            <p>💼 product designer · 5+ years in tech</p>
+            <div class="stats">
+              <a class="stat" href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
+                <img src="img/social/twitch.svg" width="20" height="20" alt="Twitch" draggable="false">
+                <span data-chrchie-twitch="" data-updated-at="2026-08-25T02:22:54.639Z">49.7K</span>
+              </a>
+              <a class="stat" href="https://www.youtube.com/channel/UCv7zvIiKMxzqraLx5QGiCbw" target="chrchieyoutube">
+                <img src="img/social/youtube.svg" width="20" height="20" alt="YouTube" draggable="false">
+                <span data-chrchie-youtube="" data-updated-at="2026-08-25T02:22:54.639Z">23.4K</span>
+              </a>
+              <a class="stat" href="https://x.com/chrchie" target="chrchie_x">
+                <img src="img/social/x.svg" width="20" height="20" alt="X (formerly known as Twitter)"
+                     draggable="false">
+                <span data-chrchie-x="" data-updated-at="2026-06-03T04:51:05.930Z">16.2K</span>
+              </a>
+              <a class="stat" href="https://www.tiktok.com/@chrchie" target="chrchie_tiktok" style="display: none">
+                <img src="img/social/tiktok.svg" width="20" height="20" alt="TikTok" draggable="false">
+                <span data-chrchie-tiktok="" data-updated-at="2026-08-25T02:22:54.639Z">2.4K</span>
+              </a>
+              <a class="stat" href="https://www.instagram.com/chrchie/" target="chrchie_instagram">
+                <img src="img/social/instagram.svg" width="20" height="20" alt="Instagram" draggable="false">
+                <span data-chrchie-instagram="" data-updated-at="2026-08-25T02:22:54.639Z">20.1K</span>
+              </a>
+            </div>
           </div>
-          <p>💜 exotic pet creator &amp; critter keeper</p>
-          <p>🦎 lizard girl vtuber + livestreamer</p>
-          <p>🎸 musician &amp; singer-songwriter</p>
-          <p>💼 product designer · 5+ years in tech</p>
+          <div id="hero-img">
+            <img src="img/hero.png" alt="hero image"/>
+          </div>
         </div>
-        <div id="hero-img">
-          <img src="hero.png" alt="hero image"/>
+        <div id="links">
+          <a href="mailto:hi@chrchie.com" target="email">
+            <img src="img/social/email_light.svg" width="20" height="20" alt="Email" draggable="false">
+            hi@chrchie.com
+          </a>
+          <a href="https://beacons.ai/chrchie/mediakit" target="mediakit">
+            <img src="img/graph.png" style="filter: invert(1);border-radius: 0" width="20" height="20" alt="Media kit" draggable="false">
+            Media Kit
+          </a>
+          <a href="https://www.twitch.tv/chrchie" target="twitch">
+            <img src="img/social/twitch_light.svg" width="20" height="20" alt="Twitch" draggable="false">
+            Twitch
+          </a>
+          <a href="https://www.youtube.com/@chrchie" target="youtube">
+            <img src="img/social/youtube_light.svg" width="20" height="20" alt="YouTube" draggable="false">
+            YouTube
+          </a>
+          <a href="https://www.instagram.com/chrchie/" target="instagram">
+            <img src="img/social/instagram_light.svg" width="20" height="20" alt="Instagram" draggable="false">
+            Instagram
+          </a>
+          <a href="https://x.com/chrchie" target="twitter">
+            <img src="img/social/x_light.svg" width="20" height="20" alt="X" draggable="false">
+            X
+          </a>
+          <a href="https://music.youtube.com/@chrchiemusic" target="ytmusic">
+            <img src="img/social/youtube_music.svg" width="20" height="20" alt="YouTube Music" draggable="false">
+            YouTube Music
+          </a>
+          <a href="https://open.spotify.com/artist/1eV3YwFjqqh9AXucpEt4FC" target="spotify">
+            <img src="img/social/spotify.svg" width="20" height="20" alt="Spotify" draggable="false">
+            Spotify
+          </a>
+          <a href="https://www.orchideight.com/collections/chrchie" target="orchid8">
+            <img src="img/social/orchideight.png" style="border-radius: 0" width="20" height="20" alt="Twitch" draggable="false">
+            Merch
+          </a>
+          <a href="https://labbrats.tv" target="labbrats">
+            <span>🦠</span>
+            Lab Brats Streamer Group
+          </a>
         </div>
-      </div>
-      <div id="links">
-        <a>
-          Email hi@chrchie.com
-        </a>
-        <a>
-          Media Kit
-        </a>
-        <a>
-          Twitch
-        </a>
-        <a>
-          YouTube
-        </a>
-        <a>
-          Instagram
-        </a>
-        <a>
-          X
-        </a>
-        <a>
-          YouTube Music
-        </a>
-        <a>
-          Spotify
-        </a>
-        <a>
-          Merch
-        </a>
-        <a>
-          Lab Brats Streamer Group
-        </a>
-      </div>
+      </section>
+
+      <section>
+        <h2>Shop recommendations</h2>
+        <div id="shop">
+          <div id="shop-img">
+            <img src="img/recommendations.png" alt="the critters"/>
+          </div>
+          <div id="recommendations">
+            <hr>
+            <a class="recommendation" href="https://partners.zenpropets.com/go/chrchieg6tr/zen-habitats" target="zenhabitats">
+              <img src="img/zen-habitats.png" alt="Zen Habitats"/>
+              <div>
+                <h3>Zen Habitats</h3>
+                <span>For all your enclosure needs!</span>
+              </div>
+            </a>
+            <hr>
+            <a class="recommendation" href="https://chewpanions.chewy.com/627f8792644" target="chewy">
+              <img src="img/chewy.png" alt="Chewy Pets"/>
+              <div>
+                <h3>Chewy Favorites</h3>
+                <span>My favorite place to shop for pet supplies</span>
+              </div>
+            </a>
+            <hr>
+            <a class="recommendation" href="https://www.amazon.com/shop/chrchie?ccs_id=2afe55c6-d70a-4674-85c0-2bc00380f549" target="amazon">
+              <img src="img/amazon.png" alt="Amazon Pets"/>
+              <div>
+                <h3>Favorites on Amazon</h3>
+                <span>For kitties, geckos, bugs, invertebrates, and more!</span>
+              </div>
+            </a>
+            <hr>
+            <a class="recommendation" href="https://us.blueriverdiets.com/?ref=chrchieg6tr" target="blueriverdiets">
+              <img src="img/blue-river.png" alt="Blue River Diets"/>
+              <div>
+                <h3>Blue River Diets</h3>
+                <span>CGD for the crested gecko owners!</span>
+              </div>
+            </a>
+            <hr>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Meet some of the critters</h2>
+      </section>
     </main>
   </body>
 </html>
