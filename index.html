@@ -57,11 +57,13 @@
 
       :root {
         --chr-dark: #261A3C;
+        --chr-light: #ebdcff;
+        --chr-accent: #FFF4DF;
         --chr-text: var(--chr-dark);
       }
 
       body {
-        background-color: #ebdcff;
+        background-color: var(--chr-light);
         margin: 0;
         font-family: 'Radio Canada', sans-serif;
         color: var(--chr-text);
@@ -69,7 +71,7 @@
       }
 
       #hero-section {
-        background-image: linear-gradient(to bottom, rgba(235, 220, 255, 1), rgba(255, 244, 223, 1));
+        background-image: linear-gradient(to bottom, var(--chr-light), var(--chr-accent));
         margin: -60px -20px 0;
         padding: 120px 20px;
         display: grid;
@@ -128,6 +130,10 @@
         font-family: 'Radio Canada Big', 'Radio Canada', sans-serif;
         z-index: 1;
         transition: background-color 0.3s ease;
+      }
+
+      header > a:not(#logo):hover {
+        text-decoration: underline;
       }
 
       header.scrolled {
@@ -245,7 +251,6 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: 16px;
         color: white;
       }
 
@@ -258,10 +263,21 @@
         color: black;
         text-decoration: none;
         font-size: 20px;
+        padding: 4px 8px;
+        border-radius: 16px;
+      }
+
+      #about .stats > a:hover {
+        background-color: var(--chr-dark);
+        color: white;
       }
 
       #about .stats > a > img {
         user-select: none;
+      }
+
+      #about .stats > a:hover > img {
+        filter: invert(1);
       }
 
       section {
@@ -287,7 +303,7 @@
         font-size: 19px;
         font-weight: 300;
         color: white;
-        background: var(--chr-dark);
+        background-color: var(--chr-dark);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -295,6 +311,13 @@
         padding: 22px;
         line-height: 1;
         border-radius: 8px;
+        transition: color, background-color 0.2s ease-in-out;
+      }
+
+      footer > a:hover,
+      #links > a:hover {
+        color: var(--chr-light);
+        background-color: #372653;
       }
 
       #links > a > img,
@@ -365,12 +388,24 @@
         display: block;
       }
 
+      #shop > #recommendations {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
       #shop .recommendation {
         position: relative;
         display: flex;
         align-items: center;
         gap: 16px;
-        padding: 24px 0;
+        padding: 8px;
+        margin: 0 8px;
+        border-radius: 50px;
+      }
+
+      #shop .recommendation:hover {
+        background-color: var(--chr-light);
       }
 
       #shop .recommendation > div {
@@ -390,6 +425,8 @@
         width: 80px;
         height: 80px;
         object-fit: contain;
+        border-radius: 100%;
+        background-color: white;
       }
 
       #critters-section {
@@ -482,7 +519,7 @@
       }
 
       footer {
-        background-image: linear-gradient(to top, rgba(235, 220, 255, 1), rgba(255, 244, 223, 1));
+        background-image: linear-gradient(to top, var(--chr-light), var(--chr-accent));
         padding: 80px 20px;
       }
 
@@ -890,7 +927,7 @@
             <source srcset="img/design/opensauce.webp" type="image/webp">
             <img src="img/design/opensauce.png" alt="opensauce">
           </picture>
-          <picture class="reveal">
+          <picture>
             <source srcset="img/design/neuroapp.avif" type="image/avif">
             <source srcset="img/design/neuroapp.webp" type="image/webp">
             <img src="img/design/neuroapp.png" alt="neuro app">
