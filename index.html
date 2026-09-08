@@ -3,8 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>chrchie</title>
     <meta property="og:title" content="chrchie">
-    <meta name="description" content="content creator and streamer 💜 lizard girl 🦎 musician 🎸 5+ years experience as a product designer (ux/ui) in tech 💼 part of the streamer group LAB BRATS 🦠">
-
+    <meta name="description" content="💜 exotic pet creator & critter keeper 🦎 lizard girl vtuber + livestreamer 🎸 musician & singer-songwriter 💼 product designer · 5+ years in tech">
     <meta name="theme-color" content="#ebdcff">
     <link rel="icon" type="image/avif" href="img/favicon.avif">
     <link rel="icon" type="image/webp" href="img/favicon.webp">
@@ -16,13 +15,19 @@
     <meta property="og:url" content="https://chrchie.com/">
     <meta property="og:site_name" content="chrchie">
     <meta property="og:title" content="chrchie">
-    <meta property="og:description" content="content creator and streamer 💜 lizard girl 🦎 musician 🎸 5+ years experience as a product designer (ux/ui) in tech 💼 part of the streamer group LAB BRATS 🦠">
+    <meta property="og:description" content="💜 exotic pet creator & critter keeper 🦎 lizard girl vtuber + livestreamer 🎸 musician & singer-songwriter 💼 product designer · 5+ years in tech">
 
-    <meta property="twitter:description" content="content creator and streamer 💜 lizard girl 🦎 musician 🎸 5+ years experience as a product designer (ux/ui) in tech 💼 part of the streamer group LAB BRATS 🦠">
+    <meta property="twitter:description" content="💜 exotic pet creator & critter keeper
+
+🦎 lizard girl vtuber + livestreamer
+
+🎸 musician & singer-songwriter
+
+💼 product designer · 5+ years in tech">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@chrchie">
     <meta name="twitter:title" content="chrchie">
-    <meta name="twitter:image" content="https://chrchie.com/img/chrchieprofilepicture.png">
+    <meta name="twitter:image" content="https://chrchie.com/img/preview.png">
 
     <script type="application/ld+json">
       {
@@ -67,6 +72,13 @@
         background-image: linear-gradient(to bottom, rgba(235, 220, 255, 1), rgba(255, 244, 223, 1));
         margin: -60px -20px 0;
         padding: 120px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 500px));
+        grid-template-areas:
+          "about hero-img"
+          "links links";
+        justify-content: center;
+        gap: 40px 20px;
       }
 
       h1, h2, h3, h4 {
@@ -151,15 +163,8 @@
         gap: 32px;
       }
 
-      #hero {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 500px));
-        justify-content: center;
-        width: 100%;
-        gap: 20px;
-      }
-
-      #hero #hero-img {
+      #hero-img {
+        grid-area: hero-img;
         aspect-ratio: 508 / 326;
         display: block;
         width: 500px;
@@ -167,14 +172,14 @@
         border-radius: 8px;
       }
 
-      #hero #hero-img > img,
-      #hero #hero-img > picture {
+      #hero-img > img,
+      #hero-img > picture {
         width: 100%;
         height: 100%;
         display: block;
       }
 
-      #hero #hero-img picture > img {
+      #hero-img picture > img {
         width: 100%;
         height: 100%;
         border-radius: 8px;
@@ -182,6 +187,7 @@
       }
 
       #about {
+        grid-area: about;
         letter-spacing: -0.8px;
         display: flex;
         flex-direction: column;
@@ -247,12 +253,11 @@
       }
 
       #links {
+        grid-area: links;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 500px));
+        grid-template-columns: repeat(2, 1fr);
         justify-content: center;
         width: 100%;
-        max-width: 1400px;
-        margin: 0 auto;
         gap: 20px;
       }
 
@@ -461,6 +466,16 @@
         padding: 80px 20px;
       }
 
+      @media screen and (max-width: 1000px) {
+        #hero-section {
+          padding-top: 100px;
+        }
+
+        #gallery {
+          column-count: 2;
+        }
+      }
+
       @media screen and (max-width: 800px) {
         header > a:not(#logo) {
           display: none;
@@ -470,18 +485,20 @@
           padding-top: 40px;
         }
 
+        #hero-section {
+          grid-template-columns: minmax(0, 500px);
+          grid-template-areas:
+            "about"
+            "links"
+            "hero-img";
+        }
+
+        #links {
+          grid-template-columns: 1fr;
+        }
+
         #gallery {
           column-count: 1;
-        }
-      }
-
-      @media screen and (max-width: 1000px) {
-        #hero-section {
-          padding-top: 100px;
-        }
-
-        #gallery {
-          column-count: 2;
         }
       }
 
@@ -559,50 +576,48 @@
     </header>
     <main>
       <section id="hero-section">
-        <div id="hero">
-          <div id="about" class="reveal">
-            <div id="title">
-              <picture>
-                <source srcset="img/icon.avif" type="image/avif">
-                <source srcset="img/icon.webp" type="image/webp">
-                <img src="img/icon.png" alt="chrchie icon">
-              </picture>
-              <h1>chrchie</h1>
-            </div>
-            <p>💜 exotic pet creator &amp; critter keeper</p>
-            <p>🦎 lizard girl vtuber + livestreamer</p>
-            <p>🎸 musician &amp; singer-songwriter</p>
-            <p>💼 product designer · 5+ years in tech</p>
-            <div class="stats">
-              <a class="stat" href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
-                <img src="img/social/twitch.svg" width="20" height="20" alt="Twitch" draggable="false">
-                <span data-chrchie-twitch="" data-updated-at="2026-09-07T20:11:20.780Z">49.9K</span>
-              </a>
-              <a class="stat" href="https://www.youtube.com/channel/UCv7zvIiKMxzqraLx5QGiCbw" target="chrchieyoutube">
-                <img src="img/social/youtube.svg" width="20" height="20" alt="YouTube" draggable="false">
-                <span data-chrchie-youtube="" data-updated-at="2026-09-07T20:11:20.780Z">25.6K</span>
-              </a>
-              <a class="stat" href="https://x.com/chrchie" target="chrchie_x">
-                <img src="img/social/x.svg" width="20" height="20" alt="X (formerly known as Twitter)" draggable="false">
-                <span data-chrchie-x="" data-updated-at="2026-06-03T04:51:05.930Z">16.2K</span>
-              </a>
-              <a class="stat" href="https://www.tiktok.com/@chrchie" target="chrchie_tiktok" style="display: none">
-                <img src="img/social/tiktok.svg" width="20" height="20" alt="TikTok" draggable="false">
-                <span data-chrchie-tiktok="" data-updated-at="2026-09-07T20:11:20.780Z">2.4K</span>
-              </a>
-              <a class="stat" href="https://www.instagram.com/chrchie/" target="chrchie_instagram">
-                <img src="img/social/instagram.svg" width="20" height="20" alt="Instagram" draggable="false">
-                <span data-chrchie-instagram="" data-updated-at="2026-09-07T20:11:20.780Z">20.7K</span>
-              </a>
-            </div>
-          </div>
-          <div id="hero-img" class="reveal">
+        <div id="about" class="reveal">
+          <div id="title">
             <picture>
-              <source srcset="img/hero.avif" type="image/avif">
-              <source srcset="img/hero.webp" type="image/webp">
-              <img src="img/hero.png" alt="hero image">
+              <source srcset="img/icon.avif" type="image/avif">
+              <source srcset="img/icon.webp" type="image/webp">
+              <img src="img/icon.png" alt="chrchie icon">
             </picture>
+            <h1>chrchie</h1>
           </div>
+          <p>💜 exotic pet creator &amp; critter keeper</p>
+          <p>🦎 lizard girl vtuber + livestreamer</p>
+          <p>🎸 musician &amp; singer-songwriter</p>
+          <p>💼 product designer · 5+ years in tech</p>
+          <div class="stats">
+            <a class="stat" href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
+              <img src="img/social/twitch.svg" width="20" height="20" alt="Twitch" draggable="false">
+              <span data-chrchie-twitch="" data-updated-at="2026-09-07T20:11:20.780Z">49.9K</span>
+            </a>
+            <a class="stat" href="https://www.youtube.com/channel/UCv7zvIiKMxzqraLx5QGiCbw" target="chrchieyoutube">
+              <img src="img/social/youtube.svg" width="20" height="20" alt="YouTube" draggable="false">
+              <span data-chrchie-youtube="" data-updated-at="2026-09-07T20:11:20.780Z">25.6K</span>
+            </a>
+            <a class="stat" href="https://x.com/chrchie" target="chrchie_x">
+              <img src="img/social/x.svg" width="20" height="20" alt="X (formerly known as Twitter)" draggable="false">
+              <span data-chrchie-x="" data-updated-at="2026-06-03T04:51:05.930Z">16.2K</span>
+            </a>
+            <a class="stat" href="https://www.tiktok.com/@chrchie" target="chrchie_tiktok" style="display: none">
+              <img src="img/social/tiktok.svg" width="20" height="20" alt="TikTok" draggable="false">
+              <span data-chrchie-tiktok="" data-updated-at="2026-09-07T20:11:20.780Z">2.4K</span>
+            </a>
+            <a class="stat" href="https://www.instagram.com/chrchie/" target="chrchie_instagram">
+              <img src="img/social/instagram.svg" width="20" height="20" alt="Instagram" draggable="false">
+              <span data-chrchie-instagram="" data-updated-at="2026-09-07T20:11:20.780Z">20.7K</span>
+            </a>
+          </div>
+        </div>
+        <div id="hero-img" class="reveal">
+          <picture>
+            <source srcset="img/hero.avif" type="image/avif">
+            <source srcset="img/hero.webp" type="image/webp">
+            <img src="img/hero.png" alt="hero image">
+          </picture>
         </div>
         <div id="links" class="reveal">
           <a href="mailto:hi@chrchie.com" target="email">
@@ -862,12 +877,10 @@
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
       const header = document.querySelector('header');
-      const heroSection = document.getElementById('hero-section');
 
       function updateHeader() {
-        if (!header || !heroSection) return;
-        const halfwayPast = heroSection.getBoundingClientRect().top + heroSection.offsetHeight / 2 <= 0;
-        header.classList.toggle('scrolled', halfwayPast);
+        if (!header) return;
+        header.classList.toggle('scrolled', window.scrollY > 100);
       }
 
       window.addEventListener('scroll', updateHeader, { passive: true });
