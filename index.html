@@ -52,7 +52,7 @@
     <style>
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 180px;
+        scroll-padding-top: 100px;
       }
 
       :root {
@@ -152,6 +152,26 @@
         height: 46px;
         width: auto;
         display: block;
+      }
+
+      #hamburger {
+        display: none;
+        font-size: 32px;
+        line-height: 1;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      #hamburger > label {
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+      }
+
+      #nav-menu {
+        display: none;
       }
 
       main {
@@ -481,6 +501,41 @@
           display: none;
         }
 
+        #hamburger {
+          display: flex;
+        }
+
+        header:has(#nav-menu-toggle:checked) {
+          background-color: rgba(235, 220, 255, 0.85);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+
+        header:has(#nav-menu-toggle:checked) + #nav-menu {
+          display: flex;
+          position: fixed;
+          top: 60px;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          background-color: rgba(235, 220, 255, 0.85);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          z-index: 1;
+          gap: 16px;
+          padding: 12px 20px 24px;
+          border-bottom: 1px solid rgba(38, 26, 60, 0.1);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+          text-align: right;
+        }
+
+        #nav-menu a {
+          font-size: 18px;
+          font-weight: 500;
+          color: var(--chr-text);
+          text-decoration: none;
+        }
+
         section {
           padding-top: 40px;
         }
@@ -573,7 +628,18 @@
       <a href="#chat">
         Let’s chat →
       </a>
+      <div id="hamburger">
+        <label for="nav-menu-toggle">≡</label>
+        <input type="checkbox" id="nav-menu-toggle" hidden="">
+      </div>
     </header>
+    <section id="nav-menu">
+      <a href="#links" onclick="closeNavMenu()">Links</a>
+      <a href="#shop" onclick="closeNavMenu()">Shop Recommendations</a>
+      <a href="#critters" onclick="closeNavMenu()">Critters</a>
+      <a href="#design" onclick="closeNavMenu()">Design Work</a>
+      <a href="#chat" onclick="closeNavMenu()">Let’s chat →</a>
+    </section>
     <main>
       <section id="hero-section">
         <div id="about" class="reveal">
@@ -876,6 +942,21 @@
 
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+      function closeNavMenu() {
+        const toggle = document.getElementById('nav-menu-toggle');
+        if (toggle) toggle.checked = false;
+      }
+
+      document.addEventListener('click', (e) => {
+        const toggle = document.getElementById('nav-menu-toggle');
+        if (!toggle || !toggle.checked) return;
+        const header = document.querySelector('header');
+        const navMenu = document.getElementById('nav-menu');
+        if (header && !header.contains(e.target) && navMenu && !navMenu.contains(e.target)) {
+          closeNavMenu();
+        }
+      });
+
       const header = document.querySelector('header');
 
       function updateHeader() {
@@ -884,7 +965,10 @@
       }
 
       window.addEventListener('scroll', updateHeader, { passive: true });
-      window.addEventListener('resize', updateHeader, { passive: true });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 800) closeNavMenu();
+        updateHeader();
+      }, { passive: true });
       updateHeader();
     </script>
   
