@@ -97,6 +97,19 @@ for (const person of randomizedKeys) {
       await page.screenshot({ path: `screenshots/${person} YouTube.png` })
     }
   }
+  if (accounts.facebook) {
+    console.log(`Fetching Facebook ${accounts.facebook}`)
+    try {
+      await page.goto(`https://www.facebook.com/${accounts.facebook}`)
+      const count = await page.locator(`a[href*="/${accounts.facebook}/followers"] strong, a[href*="/followers"] strong`).first()
+      const followers = await count.innerText()
+      updates.push({ key: `${person}-facebook`, value: followers.trim() })
+    } catch (e) {
+      console.error(`Error fetching Facebook followers for ${person}:`, e)
+    } finally {
+      await page.screenshot({ path: `screenshots/${person} Facebook.png` })
+    }
+  }
   if (accounts.spotify) {
     // TODO
   }
@@ -107,6 +120,7 @@ for (const person of randomizedKeys) {
 const now = new Date().toISOString()
 
 const platformTotals = {}
+const personTotals = {}
 const parseValue = (v) => {
   if (v === null || v === undefined || v === '') return 0
   let s = v.toString().replace(/,/g, '').trim().toUpperCase()
@@ -123,8 +137,17 @@ const parseValue = (v) => {
 }
 
 for (const update of updates) {
-  const platform = update.key.split('-').pop()
-  platformTotals[platform] = (platformTotals[platform] || 0) + parseValue(update.value)
+  const [person, ...platformParts] = update.key.split('-')
+  const platform = platformParts.join('-')
+  const val = parseValue(update.value)
+  personTotals[person] = (personTotals[person] || 0) + val
+  platformTotals[platform] = (platformTotals[platform] || 0) + val
+}
+
+for (const [person, total] of Object.entries(personTotals)) {
+  if (total > 0) {
+    updates.push({ key: `${person}-total`, value: total })
+  }
 }
 
 for (const [platform, total] of Object.entries(platformTotals)) {
