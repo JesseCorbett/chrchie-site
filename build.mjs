@@ -148,7 +148,24 @@ const parseValue = (v) => {
   return isNaN(n) ? 0 : n * multiplier
 }
 
-for (const update of updates) {
+// Fall back to the last published count for anything we couldn't scrape so the totals stay roughly correct
+const fallbacks = []
+if (fs.existsSync('index.html')) {
+  const $existing = cheerio.load(fs.readFileSync('index.html', 'utf8'))
+  for (const [person, accounts] of Object.entries(people)) {
+    for (const platform of Object.keys(accounts)) {
+      const key = `${person}-${platform}`
+      if (!accounts[platform] || updates.some(u => u.key === key)) continue
+      const existing = $existing(`[data-${key}]`).first().text().trim()
+      if (existing) {
+        console.info(`Using existing ${key} value ${existing} for totals`)
+        fallbacks.push({ key, value: existing })
+      }
+    }
+  }
+}
+
+for (const update of [...updates, ...fallbacks]) {
   const [person, ...platformParts] = update.key.split('-')
   const platform = platformParts.join('-')
   const val = parseValue(update.value)
