@@ -60,15 +60,27 @@ for (const person of randomizedKeys) {
   }
   if (accounts.x) {
     console.log(`Fetching X ${accounts.x}`)
+    // X returns a blank 403 to headless Chromium, so mask the HeadlessChrome UA and client hints
+    const headlessUa = await page.evaluate(() => navigator.userAgent)
+    const chromeVersion = headlessUa.match(/Chrome\/(\d+)/)?.[1] ?? '140'
+    const xContext = await browser.newContext({
+      userAgent: headlessUa.replace('HeadlessChrome', 'Chrome'),
+      extraHTTPHeaders: {
+        'sec-ch-ua': `"Chromium";v="${chromeVersion}", "Google Chrome";v="${chromeVersion}", "Not-A.Brand";v="99"`,
+      },
+    })
+    const xPage = await xContext.newPage()
     try {
-      await page.goto(`https://x.com/${accounts.x}`)
-      const count = await page.locator(`a[href="/${accounts.x}/verified_followers"] > div > span:first-child`)
+      const response = await xPage.goto(`https://x.com/${accounts.x}`)
+      if (!response.ok()) throw new Error(`X returned HTTP ${response.status()}`)
+      const count = await xPage.locator(`a[href="/${accounts.x}/verified_followers"] > div > span:first-child`)
       const followers = await count.innerText()
       updates.push({ key: `${person}-x`, value: followers })
     } catch (e) {
       console.error(`Error fetching X followers for ${person}:`, e)
     } finally {
-      await page.screenshot({ path: `screenshots/${person} X.png` })
+      await xPage.screenshot({ path: `screenshots/${person} X.png` })
+      await xContext.close()
     }
   }
   if (accounts.twitch) {
