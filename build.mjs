@@ -62,7 +62,7 @@ for (const person of randomizedKeys) {
     console.log(`Fetching X ${accounts.x}`)
     try {
       await page.goto(`https://x.com/${accounts.x}`)
-      const count = await page.locator(`a[href="/${accounts.x}/following"] > div > span:first-child`)
+      const count = await page.locator(`a[href="/${accounts.x}/verified_followers"] > div > span:first-child`)
       const followers = await count.innerText()
       updates.push({ key: `${person}-x`, value: followers })
     } catch (e) {
